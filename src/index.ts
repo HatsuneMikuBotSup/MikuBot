@@ -41,5 +41,5 @@ client.on("messageCreate", async (message) => {
 });
 
 //----------------------------------------------------------------- Client login
-
+console.log(process.env.TOKEN);
 client.login(process.env.TOKEN);
