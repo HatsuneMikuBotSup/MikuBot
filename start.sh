@@ -1,3 +1,3 @@
-git pull origin master
+git pull origin main
 npm run build
 node .
