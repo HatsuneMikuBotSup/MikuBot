@@ -12,7 +12,10 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "^14.14.1",
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "sequelize": "^6.37.2",
+    "sqlite3": "^5.1.7",
+    "winston": "^3.13.0"
   },
   "devDependencies": {
     "typescript": "^5.4.4"
