@@ -77,7 +77,7 @@ function buildImageChoices() {
     imageCommands.forEach((imageCommand) => {
         options.push({
             "name": imageCommand.command,
-            "value": imageCommand.command
+            "value": imageCommand.command,
         });
     });
     return options;
