@@ -9,14 +9,8 @@ while true; do
 
     # Ensure the script has execute permissions
     chmod +x start.sh
-
-    # Run the build script
+    npm i
     npm run build
-
-    # Start your Node.js application
     node .
-
-    # Sleep for a desired duration before repeating the loop
-    # This example sleeps for 1 minute (60 seconds)
     sleep 60
 done
