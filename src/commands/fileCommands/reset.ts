@@ -1,12 +1,22 @@
 import { ChatInputCommandInteraction } from "discord.js";
 import { log } from "../../utility/logger.js";
-import { DatabaseHandler } from "../../handler/databaseHandler.js";
+import fs from "fs";
 
-export default function reset(interaction: ChatInputCommandInteraction, args: any, databaseHandler: DatabaseHandler) {
+export default async function reset(interaction: ChatInputCommandInteraction, args: any) {
     log("info", "---------------------------------Reseting Bot------------------------------------");
-    interaction.reply("Resetting bot...").then(() => {
-        process.exit(0);
-    }).catch((error: any) => {
-        log("error", error);
-    });
+    try {
+        await interaction.reply("Resetting bot...");
+        const data = {
+            hardReset: args[0].value,
+        }
+        fs.writeFile("botsettings.json", JSON.stringify(data), async (err) => {
+            if (err) {
+                log("error", err.toString());
+                await interaction.editReply("Something went wrong. Restarting anyway.");
+            }
+            process.exit(0);
+        });
+    } catch (error) {
+        log("error", error as string); // Convert error to string using type assertion
+    }
 }

@@ -2,10 +2,8 @@ import { allCommands } from "../commands/allCommands.js";
 import { Client, ApplicationCommandOptionData } from "discord.js";
 import { log } from "../utility/logger.js";
 
-export async function registerCommands(client: Client) {
+export async function registerCommands(client: Client, deletePreviousCommands: boolean) {
     log("info", "-------------------------------Starting Registering All Commands-----------------------------------");
-
-    var deletePreviousCommands = true; //could be helpfull for a hardreset (dont know how long discord api saves old commands)
 
     if (deletePreviousCommands) {
         const existingCommands = await client.application?.commands.fetch();
